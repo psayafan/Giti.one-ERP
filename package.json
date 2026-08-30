@@ -28,7 +28,8 @@
     "start": "node src/http.js",
     "cli": "node src/cli.js",
     "setup": "./setup.sh",
-    "test": "node --test src/*.test.js",
+    "test": "node --test src/*.test.js train/*.test.js",
+    "corpus": "node train/build-corpus.js",
     "db:up": "docker compose up -d"
   },
   "files": [
