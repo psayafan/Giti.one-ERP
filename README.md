@@ -22,7 +22,7 @@ Without Docker the same books print in memory.
 
 | Place | Address |
 |---|---|
-| Wiki | [github.com/psayafan/Giti.one-ERP/wiki](https://github.com/psayafan/Giti.one-ERP/wiki) |
+| Wiki | [github.com/psayafan/Giti.one-ERP/wiki](https://github.com/psayafan/Giti.one-ERP/wiki) · sources in [`wiki/`](wiki/) |
 | Site | [psayafan.github.io/Giti.one-ERP](https://psayafan.github.io/Giti.one-ERP/) |
 | Requirements | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) |
 | Installation | [docs/INSTALL.md](docs/INSTALL.md) |
