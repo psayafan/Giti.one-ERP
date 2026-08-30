@@ -10,10 +10,10 @@ function money(n) {
 }
 
 export function seedDemo(app) {
-  app.parties.vendors.add({ id: "v1", name: "North Supply" });
-  app.parties.customers.add({ id: "c1", name: "Acme" });
-  app.stock.items.add({ id: "SKU-1", name: "Widget" });
-  app.stock.warehouses.add({ id: "MAIN", name: "Main warehouse" });
+  app.parties.vendors.add({ id: "v1", name: "vendor" });
+  app.parties.customers.add({ id: "c1", name: "customer" });
+  app.stock.items.add({ id: "SKU-1", name: "item" });
+  app.stock.warehouses.add({ id: "MAIN", name: "warehouse" });
   app.buying.purchaseOrders.add({
     id: "po-1",
     vendorId: "v1",
@@ -54,6 +54,25 @@ export function seedDemo(app) {
     invoiceId: "inv-1",
     amount: 60,
   });
+  app.quality.documents.add({
+    id: "GITI-ISO-9001",
+    title: "Quality records",
+    version: "1.0",
+    status: "Issued",
+  });
+  app.platform.roles.add({ id: "accountant" });
+  app.platform.users.add({ id: "u1", roleId: "accountant" });
+  app.accounting.assets.add({ id: "asset-1", status: "in-service" });
+  app.manufacturing.maintenance.add({ id: "m-1", assetId: "asset-1" });
+  app.projects.projects.add({ id: "p-1", processGroup: "executing" });
+  app.projects.charters.add({ id: "ch-1", projectId: "p-1" });
+  app.projects.stakeholders.add({ id: "sh-1", projectId: "p-1" });
+  app.projects.wbs.add({ id: "wbs-1", projectId: "p-1" });
+  app.projects.schedules.add({ id: "sch-1", projectId: "p-1" });
+  app.projects.costs.add({ id: "cost-1", projectId: "p-1" });
+  app.projects.communications.add({ id: "com-1", projectId: "p-1" });
+  app.projects.risks.add({ id: "risk-1", projectId: "p-1" });
+  app.projects.changes.add({ id: "chg-1", projectId: "p-1" });
   return app;
 }
 
@@ -89,6 +108,27 @@ export function renderBooks(app, lang = "en") {
   for (const row of app.accounting.payments.list()) {
     lines.push(
       `${verb("payment")}  ${row.id.padEnd(8)}  ${(row.invoiceId ?? row.billId ?? "").padEnd(8)}  ${money(row.amount)}`,
+    );
+  }
+  lines.push("");
+  for (const row of app.quality.documents.list()) {
+    lines.push(
+      `${verb("iso9001")}  ${row.id.padEnd(16)}  ${row.status ?? ""}`,
+    );
+  }
+  for (const row of app.platform.users.list()) {
+    lines.push(
+      `${verb("iso27001")}  ${row.id.padEnd(16)}  ${row.roleId ?? ""}`,
+    );
+  }
+  for (const row of app.accounting.assets.list()) {
+    lines.push(
+      `${verb("iso55001")}  ${row.id.padEnd(16)}  ${row.status ?? ""}`,
+    );
+  }
+  for (const row of app.projects.projects.list()) {
+    lines.push(
+      `${verb("pmp")}  ${row.id.padEnd(16)}  ${row.processGroup ?? ""}`,
     );
   }
   lines.push("");

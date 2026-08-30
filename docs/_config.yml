@@ -1,0 +1,15 @@
+title: Giti.one ERP
+author: Poriya Sayafan
+email: psayafan@hotmail.com
+description: Node.js ERP. A purchase order is a promise, not the books. ISO 9001, 27001, and 55001 records and a PMP map share one catalog.
+url: https://psayafan.github.io
+baseurl: /Giti.one-ERP
+theme: jekyll-theme-primer
+markdown: kramdown
+kramdown:
+  input: GFM
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

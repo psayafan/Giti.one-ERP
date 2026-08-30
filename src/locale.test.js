@@ -33,8 +33,11 @@ describe("locale", () => {
     const out = renderBooks(seedDemo(createApp()), "fa");
     assert.match(out, /گیتی\.وان ERP/);
     assert.match(out, /رسید/);
+    assert.match(out, /ایزو۹۰۰۱/);
+    assert.match(out, /پی‌ام‌پی/);
     assert.match(out, /بدهکار/);
     assert.match(out, /تراز/);
+    assert.doesNotMatch(out, /Acme|North Supply|Widget/);
     assert.equal(t("fa", "unbalanced"), "نامتراز");
   });
 });

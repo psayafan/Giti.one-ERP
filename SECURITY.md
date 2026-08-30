@@ -7,7 +7,7 @@ Report a vulnerability **privately**. Do not open a public GitHub issue for a se
 
 ## Scope
 
-This repository is an ERP catalog with in-memory `list` / `add`. There is no HTTP server, login, or database in this tree yet. Still report:
+This repository is a Node.js ERP. Runtime is in-memory `list` / `add`. PostgreSQL is optional via `./setup.sh`. There is no public HTTP server or login in this tree. Still report:
 
 - A secret or key committed in git
 - A bug in `src/` that would leak or overwrite data once the module is used

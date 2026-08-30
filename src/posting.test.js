@@ -195,6 +195,10 @@ describe("buy-sell-cash cycle", () => {
     assert.match(out, /stock\s+SKU-1\s+MAIN\s+7/);
     assert.match(out, /invoice\s+inv-1/);
     assert.match(out, /payment\s+pay-1/);
+    assert.match(out, /iso9001\s+GITI-ISO-9001\s+Issued/);
+    assert.match(out, /iso27001\s+u1\s+accountant/);
+    assert.match(out, /iso55001\s+asset-1\s+in-service/);
+    assert.match(out, /pmp\s+p-1\s+executing/);
     assert.match(out, /balanced/);
   });
 });

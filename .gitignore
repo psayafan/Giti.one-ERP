@@ -13,3 +13,5 @@ coverage/
 dist/
 *.log
 .receipts/
+docs/linkedin-article-fa.html
+docs/linkedin-article-fa.md

@@ -8,18 +8,17 @@ Hosted copies that you modify must share source under **AGPL-3.0-or-later**. The
 
 This repository is **not** an ISO or PMI certificate.
 
+Standards site: [psayafan.github.io/Giti.one-ERP](https://psayafan.github.io/Giti.one-ERP/).
+
 ## Run
 
 ```bash
-node src/cli.js
-node src/cli.js --lang fa
-npm test
+./setup.sh
 ```
 
-```bash
-docker compose up -d
-# DATABASE_URL=postgres://giti:giti@127.0.0.1:5432/giti
-```
+That installs dependencies, runs tests, starts Postgres (Colima + Docker CLI on macOS if Docker is missing), loads the demo, and prints the books. Persian CLI: `./setup.sh --lang fa`.
+
+Without Docker it still prints the same books in memory.
 
 Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` / `restoreApp`).
 
@@ -29,10 +28,11 @@ Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` /
 2. A module is `list` / `add`. If it moves goods or money, it posts.
 3. Documents (PO, SO) are not execution. Receipt and delivery are.
 4. ISO packs are records in the ERP, not a certification claim.
-5. Catalog ids stay English. Labels are English and فارسی (`src/locale.js`).
+5. Catalog ids stay English. Labels are English and Persian (`src/locale.js`).
 
 ## ISO and PMP
 
+- [Requirements](docs/REQUIREMENTS.md) · [Installation](docs/INSTALL.md) · [Standards](docs/STANDARDS.md)
 - [ISO register](docs/iso/REGISTER.md)
 - [ISO 9001](docs/iso/GITI-ISO-9001.md) · [ISO 27001](docs/iso/GITI-ISO-27001.md) · [ISO 55001](docs/iso/GITI-ISO-55001.md)
 - [PMP / PMBOK](docs/PMP.md)
@@ -44,3 +44,7 @@ Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` /
 ## Security
 
 [SECURITY.md](SECURITY.md) — mail psayafan@hotmail.com.
+
+## Support the work
+
+This is a public AGPL project by Poriya Sayafan. If it is useful: [PayPal](https://paypal.me/psayafan) or [GitHub Sponsors](https://github.com/sponsors/psayafan).
