@@ -60,3 +60,7 @@ CREATE OR REPLACE VIEW pmp_risks AS
   SELECT id, payload FROM erp_row WHERE domain = 'projects' AND module = 'risks';
 CREATE OR REPLACE VIEW pmp_changes AS
   SELECT id, payload FROM erp_row WHERE domain = 'projects' AND module = 'changes';
+CREATE OR REPLACE VIEW pmp_workers AS
+  SELECT id, payload FROM erp_row WHERE domain = 'projects' AND module = 'workers';
+CREATE OR REPLACE VIEW pmp_assignments AS
+  SELECT id, payload FROM erp_row WHERE domain = 'projects' AND module = 'assignments';

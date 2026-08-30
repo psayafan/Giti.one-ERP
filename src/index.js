@@ -20,6 +20,7 @@ import {
   ASSET_STATUSES,
   INCIDENT_STATUSES,
   PROCESS_GROUPS,
+  RACI_ROLES,
   wrapDocuments,
   wrapLinked,
   wrapStatus,
@@ -125,6 +126,41 @@ export function createApp(options = {}) {
     "processGroup",
     PROCESS_GROUPS,
     "process group",
+  );
+  app.projects.workers = wrapLinked(
+    app.projects.workers,
+    app.projects.projects,
+    "projectId",
+    "worker needs a project",
+  );
+  app.projects.assignments = wrapLinked(
+    app.projects.assignments,
+    app.projects.workers,
+    "workerId",
+    "assignment needs a worker",
+  );
+  app.projects.raci = wrapStatus(
+    wrapLinked(
+      app.projects.raci,
+      app.projects.projects,
+      "projectId",
+      "raci needs a project",
+    ),
+    "role",
+    RACI_ROLES,
+    "raci role",
+  );
+  app.crm.listEntries = wrapLinked(
+    app.crm.listEntries,
+    app.crm.lists,
+    "listId",
+    "list entry needs a list",
+  );
+  app.crm.savedViews = wrapLinked(
+    app.crm.savedViews,
+    app.crm.lists,
+    "listId",
+    "saved view needs a list",
   );
   stock.rebuild();
   app.ledger = ledger;

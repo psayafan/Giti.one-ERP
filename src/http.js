@@ -6,12 +6,15 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { MODULES, createApp, domains } from "./index.js";
 import { booksSnapshot, seedDemo } from "./cli.js";
+import { moduleKind } from "./graph.js";
 import {
   domainLabel,
   moduleLabel,
   resolveLang,
   uiLabels,
 } from "./locale.js";
+
+export { moduleKind };
 
 const UI_ROOT = join(dirname(fileURLToPath(import.meta.url)), "ui");
 const HOST = "127.0.0.1";
@@ -24,35 +27,6 @@ const STATIC = {
   "/app.css": { file: "app.css", type: "text/css; charset=utf-8" },
   "/app.js": { file: "app.js", type: "text/javascript; charset=utf-8" },
 };
-
-const POSTS = new Set([
-  "buying.receipts",
-  "buying.landedCosts",
-  "stock.stockMoves",
-  "stock.deliveries",
-  "stock.warehouseTransfers",
-  "stock.inventoryAdjustments",
-  "accounting.invoices",
-  "accounting.payments",
-  "accounting.bills",
-]);
-
-const RECORDS = new Set([
-  "quality.documents",
-  "quality.correctiveActions",
-  "accounting.assets",
-  "manufacturing.maintenance",
-  "platform.users",
-  "platform.incidents",
-  "projects.projects",
-]);
-
-export function moduleKind(domain, id) {
-  const key = `${domain}.${id}`;
-  if (POSTS.has(key)) return "posts";
-  if (RECORDS.has(key)) return "records";
-  return "slot";
-}
 
 function send(res, status, body, type = "application/json; charset=utf-8") {
   const data = typeof body === "string" ? body : JSON.stringify(body);

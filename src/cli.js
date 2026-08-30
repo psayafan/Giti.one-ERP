@@ -73,6 +73,18 @@ export function seedDemo(app) {
   app.projects.communications.add({ id: "com-1", projectId: "p-1" });
   app.projects.risks.add({ id: "risk-1", projectId: "p-1" });
   app.projects.changes.add({ id: "chg-1", projectId: "p-1" });
+  app.projects.workers.add({ id: "wkr-1", projectId: "p-1" });
+  app.projects.assignments.add({ id: "asg-1", workerId: "wkr-1" });
+  app.quality.rules.add({ id: "rule-1", title: "debit equals credit" });
+  app.parties.salesAgents.add({ id: "sa-1" });
+  app.crm.lists.add({ id: "list-1" });
+  app.crm.listEntries.add({ id: "le-1", listId: "list-1" });
+  app.crm.savedViews.add({ id: "view-1", listId: "list-1" });
+  app.projects.raci.add({
+    id: "raci-1",
+    projectId: "p-1",
+    role: "responsible",
+  });
   return app;
 }
 

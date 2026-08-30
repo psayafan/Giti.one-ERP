@@ -18,6 +18,7 @@ describe("PostgreSQL schema", () => {
     assert.match(sql, /iso_27001_audit_logs/);
     assert.match(sql, /iso_55001_assets/);
     assert.match(sql, /pmp_charters/);
+    assert.match(sql, /pmp_workers/);
   });
 
   it("round-trips dump and hydrate without posting twice", () => {

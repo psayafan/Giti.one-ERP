@@ -11,6 +11,12 @@ export const PROCESS_GROUPS = [
   "monitoring",
   "closing",
 ];
+export const RACI_ROLES = [
+  "responsible",
+  "accountable",
+  "consulted",
+  "informed",
+];
 
 export function wrapDocuments(store) {
   return {

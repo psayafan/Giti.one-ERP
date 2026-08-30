@@ -14,7 +14,7 @@ Giti.one maps the PMI process groups and knowledge areas onto `projects.*` (and 
 |---|---|
 | Initiating | `projects.charters`, `projects.stakeholders` |
 | Planning | `projects.wbs`, `projects.schedules`, `projects.costs`, `projects.risks`, `buying.purchaseRequests` |
-| Executing | `projects.tasks`, `projects.communications`, `buying.purchaseOrders` |
+| Executing | `projects.tasks`, `projects.workers`, `projects.assignments`, `projects.communications`, `buying.purchaseOrders` |
 | Monitoring and controlling | `projects.changes`, `quality.changeRequests`, `accounting.budgets` |
 | Closing | `projects.projects` with `processGroup: closing` |
 
@@ -26,8 +26,8 @@ Giti.one maps the PMI process groups and knowledge areas onto `projects.*` (and 
 | Scope | `projects.wbs` |
 | Schedule | `projects.schedules`, `projects.tasks` |
 | Cost | `projects.costs`, `projects.timesheets`, `accounting.budgets` |
-| Quality | `quality.*` (ISO 9001 pack) |
-| Resource | `hr.employees`, `hr.planning` |
+| Resource | `projects.workers`, `projects.assignments`, `hr.employees`, `hr.planning` |
+| Quality | `quality.*` (ISO 9001 pack), `quality.rules` |
 | Communications | `projects.communications` |
 | Risk | `projects.risks`, `quality.risks` |
 | Procurement | `buying.*` |
