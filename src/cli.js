@@ -3,6 +3,7 @@
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { createApp } from "./index.js";
+import { accountLabel, langFromArgv, t } from "./locale.js";
 
 function money(n) {
   return Number(n).toFixed(2).padStart(10);
@@ -56,55 +57,62 @@ export function seedDemo(app) {
   return app;
 }
 
-export function renderBooks(app) {
+export function renderBooks(app, lang = "en") {
   const trial = app.ledger.trialBalance();
-  const lines = ["Giti.one ERP", ""];
+  const verb = (key) => t(lang, key).padEnd(8);
+  const lines = [t(lang, "title"), ""];
   for (const row of app.buying.purchaseOrders.list()) {
     lines.push(
-      `buy       ${row.id.padEnd(8)}  ${String(row.qty).padStart(4)} × ${Number(row.unitCost).toFixed(2)}`,
+      `${verb("buy")}  ${row.id.padEnd(8)}  ${String(row.qty).padStart(4)} × ${Number(row.unitCost).toFixed(2)}`,
     );
   }
   for (const row of app.buying.receipts.list()) {
     lines.push(
-      `receipt   ${row.id.padEnd(8)}  ${row.warehouseId.padEnd(8)}  +${row.qty}`,
+      `${verb("receipt")}  ${row.id.padEnd(8)}  ${row.warehouseId.padEnd(8)}  +${row.qty}`,
     );
   }
   for (const row of app.sales.saleOrders.list()) {
     lines.push(
-      `sell      ${row.id.padEnd(8)}  ${String(row.qty).padStart(4)} × ${Number(row.unitPrice).toFixed(2)}`,
+      `${verb("sell")}  ${row.id.padEnd(8)}  ${String(row.qty).padStart(4)} × ${Number(row.unitPrice).toFixed(2)}`,
     );
   }
   for (const row of app.stock.deliveries.list()) {
     lines.push(
-      `delivery  ${row.id.padEnd(8)}  ${row.warehouseId.padEnd(8)}  -${row.qty}`,
+      `${verb("delivery")}  ${row.id.padEnd(8)}  ${row.warehouseId.padEnd(8)}  -${row.qty}`,
     );
   }
   for (const row of app.accounting.invoices.list()) {
     lines.push(
-      `invoice   ${row.id.padEnd(8)}  ${(row.partyId ?? "").padEnd(8)}  ${money(row.amount)}`,
+      `${verb("invoice")}  ${row.id.padEnd(8)}  ${(row.partyId ?? "").padEnd(8)}  ${money(row.amount)}`,
     );
   }
   for (const row of app.accounting.payments.list()) {
     lines.push(
-      `payment   ${row.id.padEnd(8)}  ${(row.invoiceId ?? row.billId ?? "").padEnd(8)}  ${money(row.amount)}`,
+      `${verb("payment")}  ${row.id.padEnd(8)}  ${(row.invoiceId ?? row.billId ?? "").padEnd(8)}  ${money(row.amount)}`,
     );
   }
   lines.push("");
   for (const row of app.stockEngine.snapshot()) {
     lines.push(
-      `stock     ${row.itemId.padEnd(8)}  ${row.warehouseId.padEnd(8)}  ${String(row.qty).padStart(4)}`,
+      `${verb("stock")}  ${row.itemId.padEnd(8)}  ${row.warehouseId.padEnd(8)}  ${String(row.qty).padStart(4)}`,
     );
   }
   lines.push("");
-  lines.push(`${"".padEnd(12)}  ${"Dr".padStart(10)}  ${"Cr".padStart(10)}`);
+  const debitHead = t(lang, "debit");
+  const creditHead = t(lang, "credit");
+  const nameWidth = lang === "fa" ? 28 : 12;
+  lines.push(
+    `${"".padEnd(nameWidth)}  ${debitHead.padStart(10)}  ${creditHead.padStart(10)}`,
+  );
   for (const row of trial.rows) {
-    lines.push(`${row.accountId.padEnd(12)}  ${money(row.debit)}  ${money(row.credit)}`);
+    const name = accountLabel(lang, row.accountId);
+    lines.push(`${name.padEnd(nameWidth)}  ${money(row.debit)}  ${money(row.credit)}`);
   }
   const dr = trial.rows.reduce((sum, row) => sum + row.debit, 0);
   const cr = trial.rows.reduce((sum, row) => sum + row.credit, 0);
-  lines.push(`${"".padEnd(12)}  ${"----------"}  ${"----------"}`);
+  lines.push(`${"".padEnd(nameWidth)}  ${"----------"}  ${"----------"}`);
   lines.push(
-    `${"".padEnd(12)}  ${money(dr)}  ${money(cr)}  ${trial.balanced ? "balanced" : "UNBALANCED"}`,
+    `${"".padEnd(nameWidth)}  ${money(dr)}  ${money(cr)}  ${trial.balanced ? t(lang, "balanced") : t(lang, "unbalanced")}`,
   );
   return `${lines.join("\n")}\n`;
 }
@@ -114,5 +122,6 @@ const isMain =
   import.meta.url === pathToFileURL(resolve(process.argv[1])).href;
 
 if (isMain) {
-  process.stdout.write(renderBooks(seedDemo(createApp())));
+  const lang = langFromArgv(process.argv, process.env);
+  process.stdout.write(renderBooks(seedDemo(createApp()), lang));
 }

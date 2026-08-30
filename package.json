@@ -2,7 +2,7 @@
   "name": "giti-one-erp",
   "version": "0.0.1",
   "private": false,
-  "description": "Giti.one ERP — Node.js finance, inventory, supply chain, ISO records, PMP",
+  "description": "Node.js ERP: receipt and delivery post a balanced journal. ISO 9001/27001/55001 records and a PMP map share one catalog. English and فارسی.",
   "author": "Poriya Sayafan <psayafan@hotmail.com>",
   "license": "AGPL-3.0-or-later",
   "type": "module",
