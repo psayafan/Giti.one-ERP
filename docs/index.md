@@ -35,6 +35,8 @@ Local UI: `npm start` then http://127.0.0.1:3847 (this machine only).
 | GITI-ISO-27001 | [ISO 27001](iso/GITI-ISO-27001.html) |
 | GITI-ISO-55001 | [ISO 55001](iso/GITI-ISO-55001.html) |
 | GITI-PMP | [PMP / PMBOK](PMP.html) |
+| GITI-MVP | [MVP](GITI-MVP.html) · [PDF](GITI-MVP.pdf) |
+| GITI-GRAPH | [Catalog graph](GRAPH.html) · [open](graph.html) |
 | GITI-SCOPE | [Scope](SCOPE.html) |
 
 ## Repository files

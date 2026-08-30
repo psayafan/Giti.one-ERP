@@ -1,0 +1,1657 @@
+{
+  "title": "Giti.one catalog graph",
+  "public": true,
+  "counts": {
+    "posts": 9,
+    "records": 12,
+    "slot": 102
+  },
+  "nodes": [
+    {
+      "id": "domain:accounting",
+      "kind": "domain",
+      "domain": "accounting",
+      "label": "accounting"
+    },
+    {
+      "id": "domain:parties",
+      "kind": "domain",
+      "domain": "parties",
+      "label": "parties"
+    },
+    {
+      "id": "domain:sales",
+      "kind": "domain",
+      "domain": "sales",
+      "label": "sales"
+    },
+    {
+      "id": "domain:buying",
+      "kind": "domain",
+      "domain": "buying",
+      "label": "buying"
+    },
+    {
+      "id": "domain:stock",
+      "kind": "domain",
+      "domain": "stock",
+      "label": "stock"
+    },
+    {
+      "id": "domain:manufacturing",
+      "kind": "domain",
+      "domain": "manufacturing",
+      "label": "manufacturing"
+    },
+    {
+      "id": "domain:crm",
+      "kind": "domain",
+      "domain": "crm",
+      "label": "crm"
+    },
+    {
+      "id": "domain:pos",
+      "kind": "domain",
+      "domain": "pos",
+      "label": "pos"
+    },
+    {
+      "id": "domain:hr",
+      "kind": "domain",
+      "domain": "hr",
+      "label": "hr"
+    },
+    {
+      "id": "domain:quality",
+      "kind": "domain",
+      "domain": "quality",
+      "label": "quality"
+    },
+    {
+      "id": "domain:projects",
+      "kind": "domain",
+      "domain": "projects",
+      "label": "projects"
+    },
+    {
+      "id": "domain:website",
+      "kind": "domain",
+      "domain": "website",
+      "label": "website"
+    },
+    {
+      "id": "domain:platform",
+      "kind": "domain",
+      "domain": "platform",
+      "label": "platform"
+    },
+    {
+      "id": "accounting.accounts",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "accounts",
+      "label": "accounting.accounts"
+    },
+    {
+      "id": "accounting.journals",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "journals",
+      "label": "accounting.journals"
+    },
+    {
+      "id": "accounting.invoices",
+      "kind": "posts",
+      "domain": "accounting",
+      "module": "invoices",
+      "label": "accounting.invoices"
+    },
+    {
+      "id": "accounting.bills",
+      "kind": "posts",
+      "domain": "accounting",
+      "module": "bills",
+      "label": "accounting.bills"
+    },
+    {
+      "id": "accounting.payments",
+      "kind": "posts",
+      "domain": "accounting",
+      "module": "payments",
+      "label": "accounting.payments"
+    },
+    {
+      "id": "accounting.taxRates",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "taxRates",
+      "label": "accounting.taxRates"
+    },
+    {
+      "id": "accounting.currencies",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "currencies",
+      "label": "accounting.currencies"
+    },
+    {
+      "id": "accounting.exchangeRates",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "exchangeRates",
+      "label": "accounting.exchangeRates"
+    },
+    {
+      "id": "accounting.expenses",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "expenses",
+      "label": "accounting.expenses"
+    },
+    {
+      "id": "accounting.creditNotes",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "creditNotes",
+      "label": "accounting.creditNotes"
+    },
+    {
+      "id": "accounting.vendorCredits",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "vendorCredits",
+      "label": "accounting.vendorCredits"
+    },
+    {
+      "id": "accounting.bankAccounts",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "bankAccounts",
+      "label": "accounting.bankAccounts"
+    },
+    {
+      "id": "accounting.bankTransactions",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "bankTransactions",
+      "label": "accounting.bankTransactions"
+    },
+    {
+      "id": "accounting.bankRules",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "bankRules",
+      "label": "accounting.bankRules"
+    },
+    {
+      "id": "accounting.reconciliations",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "reconciliations",
+      "label": "accounting.reconciliations"
+    },
+    {
+      "id": "accounting.budgets",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "budgets",
+      "label": "accounting.budgets"
+    },
+    {
+      "id": "accounting.assets",
+      "kind": "records",
+      "domain": "accounting",
+      "module": "assets",
+      "label": "accounting.assets"
+    },
+    {
+      "id": "accounting.fiscalYears",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "fiscalYears",
+      "label": "accounting.fiscalYears"
+    },
+    {
+      "id": "accounting.analyticAccounts",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "analyticAccounts",
+      "label": "accounting.analyticAccounts"
+    },
+    {
+      "id": "accounting.loans",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "loans",
+      "label": "accounting.loans"
+    },
+    {
+      "id": "accounting.cheques",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "cheques",
+      "label": "accounting.cheques"
+    },
+    {
+      "id": "accounting.installments",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "installments",
+      "label": "accounting.installments"
+    },
+    {
+      "id": "accounting.financialReports",
+      "kind": "slot",
+      "domain": "accounting",
+      "module": "financialReports",
+      "label": "accounting.financialReports"
+    },
+    {
+      "id": "parties.customers",
+      "kind": "slot",
+      "domain": "parties",
+      "module": "customers",
+      "label": "parties.customers"
+    },
+    {
+      "id": "parties.vendors",
+      "kind": "slot",
+      "domain": "parties",
+      "module": "vendors",
+      "label": "parties.vendors"
+    },
+    {
+      "id": "parties.contacts",
+      "kind": "slot",
+      "domain": "parties",
+      "module": "contacts",
+      "label": "parties.contacts"
+    },
+    {
+      "id": "parties.companies",
+      "kind": "slot",
+      "domain": "parties",
+      "module": "companies",
+      "label": "parties.companies"
+    },
+    {
+      "id": "parties.salesAgents",
+      "kind": "slot",
+      "domain": "parties",
+      "module": "salesAgents",
+      "label": "parties.salesAgents"
+    },
+    {
+      "id": "sales.leads",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "leads",
+      "label": "sales.leads"
+    },
+    {
+      "id": "sales.opportunities",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "opportunities",
+      "label": "sales.opportunities"
+    },
+    {
+      "id": "sales.quotations",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "quotations",
+      "label": "sales.quotations"
+    },
+    {
+      "id": "sales.saleOrders",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "saleOrders",
+      "label": "sales.saleOrders"
+    },
+    {
+      "id": "sales.subscriptions",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "subscriptions",
+      "label": "sales.subscriptions"
+    },
+    {
+      "id": "sales.rentals",
+      "kind": "slot",
+      "domain": "sales",
+      "module": "rentals",
+      "label": "sales.rentals"
+    },
+    {
+      "id": "buying.purchaseRequests",
+      "kind": "slot",
+      "domain": "buying",
+      "module": "purchaseRequests",
+      "label": "buying.purchaseRequests"
+    },
+    {
+      "id": "buying.purchaseOrders",
+      "kind": "slot",
+      "domain": "buying",
+      "module": "purchaseOrders",
+      "label": "buying.purchaseOrders"
+    },
+    {
+      "id": "buying.receipts",
+      "kind": "posts",
+      "domain": "buying",
+      "module": "receipts",
+      "label": "buying.receipts"
+    },
+    {
+      "id": "buying.landedCosts",
+      "kind": "posts",
+      "domain": "buying",
+      "module": "landedCosts",
+      "label": "buying.landedCosts"
+    },
+    {
+      "id": "stock.items",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "items",
+      "label": "stock.items"
+    },
+    {
+      "id": "stock.itemCategories",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "itemCategories",
+      "label": "stock.itemCategories"
+    },
+    {
+      "id": "stock.warehouses",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "warehouses",
+      "label": "stock.warehouses"
+    },
+    {
+      "id": "stock.stockMoves",
+      "kind": "posts",
+      "domain": "stock",
+      "module": "stockMoves",
+      "label": "stock.stockMoves"
+    },
+    {
+      "id": "stock.stockQuants",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "stockQuants",
+      "label": "stock.stockQuants"
+    },
+    {
+      "id": "stock.lots",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "lots",
+      "label": "stock.lots"
+    },
+    {
+      "id": "stock.serials",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "serials",
+      "label": "stock.serials"
+    },
+    {
+      "id": "stock.inventoryAdjustments",
+      "kind": "posts",
+      "domain": "stock",
+      "module": "inventoryAdjustments",
+      "label": "stock.inventoryAdjustments"
+    },
+    {
+      "id": "stock.warehouseTransfers",
+      "kind": "posts",
+      "domain": "stock",
+      "module": "warehouseTransfers",
+      "label": "stock.warehouseTransfers"
+    },
+    {
+      "id": "stock.deliveries",
+      "kind": "posts",
+      "domain": "stock",
+      "module": "deliveries",
+      "label": "stock.deliveries"
+    },
+    {
+      "id": "stock.boms",
+      "kind": "slot",
+      "domain": "stock",
+      "module": "boms",
+      "label": "stock.boms"
+    },
+    {
+      "id": "manufacturing.workcenters",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "workcenters",
+      "label": "manufacturing.workcenters"
+    },
+    {
+      "id": "manufacturing.routings",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "routings",
+      "label": "manufacturing.routings"
+    },
+    {
+      "id": "manufacturing.manufacturingOrders",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "manufacturingOrders",
+      "label": "manufacturing.manufacturingOrders"
+    },
+    {
+      "id": "manufacturing.workOrders",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "workOrders",
+      "label": "manufacturing.workOrders"
+    },
+    {
+      "id": "manufacturing.shopFloor",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "shopFloor",
+      "label": "manufacturing.shopFloor"
+    },
+    {
+      "id": "manufacturing.subcontracting",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "subcontracting",
+      "label": "manufacturing.subcontracting"
+    },
+    {
+      "id": "manufacturing.qualityChecks",
+      "kind": "slot",
+      "domain": "manufacturing",
+      "module": "qualityChecks",
+      "label": "manufacturing.qualityChecks"
+    },
+    {
+      "id": "manufacturing.maintenance",
+      "kind": "records",
+      "domain": "manufacturing",
+      "module": "maintenance",
+      "label": "manufacturing.maintenance"
+    },
+    {
+      "id": "crm.pipelines",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "pipelines",
+      "label": "crm.pipelines"
+    },
+    {
+      "id": "crm.activities",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "activities",
+      "label": "crm.activities"
+    },
+    {
+      "id": "crm.campaigns",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "campaigns",
+      "label": "crm.campaigns"
+    },
+    {
+      "id": "crm.lists",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "lists",
+      "label": "crm.lists"
+    },
+    {
+      "id": "crm.listEntries",
+      "kind": "records",
+      "domain": "crm",
+      "module": "listEntries",
+      "label": "crm.listEntries"
+    },
+    {
+      "id": "crm.savedViews",
+      "kind": "records",
+      "domain": "crm",
+      "module": "savedViews",
+      "label": "crm.savedViews"
+    },
+    {
+      "id": "crm.notes",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "notes",
+      "label": "crm.notes"
+    },
+    {
+      "id": "crm.meetings",
+      "kind": "slot",
+      "domain": "crm",
+      "module": "meetings",
+      "label": "crm.meetings"
+    },
+    {
+      "id": "pos.posSessions",
+      "kind": "slot",
+      "domain": "pos",
+      "module": "posSessions",
+      "label": "pos.posSessions"
+    },
+    {
+      "id": "pos.posOrders",
+      "kind": "slot",
+      "domain": "pos",
+      "module": "posOrders",
+      "label": "pos.posOrders"
+    },
+    {
+      "id": "hr.employees",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "employees",
+      "label": "hr.employees"
+    },
+    {
+      "id": "hr.departments",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "departments",
+      "label": "hr.departments"
+    },
+    {
+      "id": "hr.attendance",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "attendance",
+      "label": "hr.attendance"
+    },
+    {
+      "id": "hr.leaves",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "leaves",
+      "label": "hr.leaves"
+    },
+    {
+      "id": "hr.payroll",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "payroll",
+      "label": "hr.payroll"
+    },
+    {
+      "id": "hr.recruitment",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "recruitment",
+      "label": "hr.recruitment"
+    },
+    {
+      "id": "hr.appraisals",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "appraisals",
+      "label": "hr.appraisals"
+    },
+    {
+      "id": "hr.expensesHr",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "expensesHr",
+      "label": "hr.expensesHr"
+    },
+    {
+      "id": "hr.fleet",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "fleet",
+      "label": "hr.fleet"
+    },
+    {
+      "id": "hr.planning",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "planning",
+      "label": "hr.planning"
+    },
+    {
+      "id": "hr.trainings",
+      "kind": "slot",
+      "domain": "hr",
+      "module": "trainings",
+      "label": "hr.trainings"
+    },
+    {
+      "id": "quality.documents",
+      "kind": "records",
+      "domain": "quality",
+      "module": "documents",
+      "label": "quality.documents"
+    },
+    {
+      "id": "quality.documentRevisions",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "documentRevisions",
+      "label": "quality.documentRevisions"
+    },
+    {
+      "id": "quality.nonconformances",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "nonconformances",
+      "label": "quality.nonconformances"
+    },
+    {
+      "id": "quality.correctiveActions",
+      "kind": "records",
+      "domain": "quality",
+      "module": "correctiveActions",
+      "label": "quality.correctiveActions"
+    },
+    {
+      "id": "quality.internalAudits",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "internalAudits",
+      "label": "quality.internalAudits"
+    },
+    {
+      "id": "quality.managementReviews",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "managementReviews",
+      "label": "quality.managementReviews"
+    },
+    {
+      "id": "quality.calibrations",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "calibrations",
+      "label": "quality.calibrations"
+    },
+    {
+      "id": "quality.complaints",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "complaints",
+      "label": "quality.complaints"
+    },
+    {
+      "id": "quality.changeRequests",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "changeRequests",
+      "label": "quality.changeRequests"
+    },
+    {
+      "id": "quality.risks",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "risks",
+      "label": "quality.risks"
+    },
+    {
+      "id": "quality.rules",
+      "kind": "slot",
+      "domain": "quality",
+      "module": "rules",
+      "label": "quality.rules"
+    },
+    {
+      "id": "projects.projects",
+      "kind": "records",
+      "domain": "projects",
+      "module": "projects",
+      "label": "projects.projects"
+    },
+    {
+      "id": "projects.charters",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "charters",
+      "label": "projects.charters"
+    },
+    {
+      "id": "projects.stakeholders",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "stakeholders",
+      "label": "projects.stakeholders"
+    },
+    {
+      "id": "projects.workers",
+      "kind": "records",
+      "domain": "projects",
+      "module": "workers",
+      "label": "projects.workers"
+    },
+    {
+      "id": "projects.assignments",
+      "kind": "records",
+      "domain": "projects",
+      "module": "assignments",
+      "label": "projects.assignments"
+    },
+    {
+      "id": "projects.raci",
+      "kind": "records",
+      "domain": "projects",
+      "module": "raci",
+      "label": "projects.raci"
+    },
+    {
+      "id": "projects.wbs",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "wbs",
+      "label": "projects.wbs"
+    },
+    {
+      "id": "projects.schedules",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "schedules",
+      "label": "projects.schedules"
+    },
+    {
+      "id": "projects.tasks",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "tasks",
+      "label": "projects.tasks"
+    },
+    {
+      "id": "projects.costs",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "costs",
+      "label": "projects.costs"
+    },
+    {
+      "id": "projects.timesheets",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "timesheets",
+      "label": "projects.timesheets"
+    },
+    {
+      "id": "projects.communications",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "communications",
+      "label": "projects.communications"
+    },
+    {
+      "id": "projects.risks",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "risks",
+      "label": "projects.risks"
+    },
+    {
+      "id": "projects.changes",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "changes",
+      "label": "projects.changes"
+    },
+    {
+      "id": "projects.tickets",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "tickets",
+      "label": "projects.tickets"
+    },
+    {
+      "id": "projects.fieldService",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "fieldService",
+      "label": "projects.fieldService"
+    },
+    {
+      "id": "projects.knowledge",
+      "kind": "slot",
+      "domain": "projects",
+      "module": "knowledge",
+      "label": "projects.knowledge"
+    },
+    {
+      "id": "website.pages",
+      "kind": "slot",
+      "domain": "website",
+      "module": "pages",
+      "label": "website.pages"
+    },
+    {
+      "id": "website.ecommerceOrders",
+      "kind": "slot",
+      "domain": "website",
+      "module": "ecommerceOrders",
+      "label": "website.ecommerceOrders"
+    },
+    {
+      "id": "website.events",
+      "kind": "slot",
+      "domain": "website",
+      "module": "events",
+      "label": "website.events"
+    },
+    {
+      "id": "website.liveChat",
+      "kind": "slot",
+      "domain": "website",
+      "module": "liveChat",
+      "label": "website.liveChat"
+    },
+    {
+      "id": "website.memberships",
+      "kind": "slot",
+      "domain": "website",
+      "module": "memberships",
+      "label": "website.memberships"
+    },
+    {
+      "id": "website.donations",
+      "kind": "slot",
+      "domain": "website",
+      "module": "donations",
+      "label": "website.donations"
+    },
+    {
+      "id": "platform.users",
+      "kind": "records",
+      "domain": "platform",
+      "module": "users",
+      "label": "platform.users"
+    },
+    {
+      "id": "platform.roles",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "roles",
+      "label": "platform.roles"
+    },
+    {
+      "id": "platform.companiesOrg",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "companiesOrg",
+      "label": "platform.companiesOrg"
+    },
+    {
+      "id": "platform.branches",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "branches",
+      "label": "platform.branches"
+    },
+    {
+      "id": "platform.settings",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "settings",
+      "label": "platform.settings"
+    },
+    {
+      "id": "platform.attachments",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "attachments",
+      "label": "platform.attachments"
+    },
+    {
+      "id": "platform.auditLogs",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "auditLogs",
+      "label": "platform.auditLogs"
+    },
+    {
+      "id": "platform.incidents",
+      "kind": "records",
+      "domain": "platform",
+      "module": "incidents",
+      "label": "platform.incidents"
+    },
+    {
+      "id": "platform.webhooks",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "webhooks",
+      "label": "platform.webhooks"
+    },
+    {
+      "id": "platform.imports",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "imports",
+      "label": "platform.imports"
+    },
+    {
+      "id": "platform.exports",
+      "kind": "slot",
+      "domain": "platform",
+      "module": "exports",
+      "label": "platform.exports"
+    }
+  ],
+  "edges": [
+    {
+      "from": "domain:accounting",
+      "to": "accounting.accounts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.journals",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.invoices",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.bills",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.payments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.taxRates",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.currencies",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.exchangeRates",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.expenses",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.creditNotes",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.vendorCredits",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.bankAccounts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.bankTransactions",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.bankRules",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.reconciliations",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.budgets",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.assets",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.fiscalYears",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.analyticAccounts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.loans",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.cheques",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.installments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:accounting",
+      "to": "accounting.financialReports",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:parties",
+      "to": "parties.customers",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:parties",
+      "to": "parties.vendors",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:parties",
+      "to": "parties.contacts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:parties",
+      "to": "parties.companies",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:parties",
+      "to": "parties.salesAgents",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.leads",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.opportunities",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.quotations",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.saleOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.subscriptions",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:sales",
+      "to": "sales.rentals",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:buying",
+      "to": "buying.purchaseRequests",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:buying",
+      "to": "buying.purchaseOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:buying",
+      "to": "buying.receipts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:buying",
+      "to": "buying.landedCosts",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.items",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.itemCategories",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.warehouses",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.stockMoves",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.stockQuants",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.lots",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.serials",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.inventoryAdjustments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.warehouseTransfers",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.deliveries",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:stock",
+      "to": "stock.boms",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.workcenters",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.routings",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.manufacturingOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.workOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.shopFloor",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.subcontracting",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.qualityChecks",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:manufacturing",
+      "to": "manufacturing.maintenance",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.pipelines",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.activities",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.campaigns",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.lists",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.listEntries",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.savedViews",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.notes",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:crm",
+      "to": "crm.meetings",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:pos",
+      "to": "pos.posSessions",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:pos",
+      "to": "pos.posOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.employees",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.departments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.attendance",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.leaves",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.payroll",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.recruitment",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.appraisals",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.expensesHr",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.fleet",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.planning",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:hr",
+      "to": "hr.trainings",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.documents",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.documentRevisions",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.nonconformances",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.correctiveActions",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.internalAudits",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.managementReviews",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.calibrations",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.complaints",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.changeRequests",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.risks",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:quality",
+      "to": "quality.rules",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.projects",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.charters",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.stakeholders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.workers",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.assignments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.raci",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.wbs",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.schedules",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.tasks",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.costs",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.timesheets",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.communications",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.risks",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.changes",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.tickets",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.fieldService",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:projects",
+      "to": "projects.knowledge",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.pages",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.ecommerceOrders",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.events",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.liveChat",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.memberships",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:website",
+      "to": "website.donations",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.users",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.roles",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.companiesOrg",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.branches",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.settings",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.attachments",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.auditLogs",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.incidents",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.webhooks",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.imports",
+      "rel": "catalog"
+    },
+    {
+      "from": "domain:platform",
+      "to": "platform.exports",
+      "rel": "catalog"
+    },
+    {
+      "from": "buying.purchaseOrders",
+      "to": "buying.receipts",
+      "rel": "promise"
+    },
+    {
+      "from": "buying.receipts",
+      "to": "stock.stockMoves",
+      "rel": "posts"
+    },
+    {
+      "from": "buying.receipts",
+      "to": "accounting.journals",
+      "rel": "inventory / GRNI"
+    },
+    {
+      "from": "sales.saleOrders",
+      "to": "stock.deliveries",
+      "rel": "promise"
+    },
+    {
+      "from": "stock.deliveries",
+      "to": "stock.stockMoves",
+      "rel": "posts"
+    },
+    {
+      "from": "stock.deliveries",
+      "to": "accounting.journals",
+      "rel": "COGS"
+    },
+    {
+      "from": "accounting.invoices",
+      "to": "accounting.journals",
+      "rel": "AR / revenue"
+    },
+    {
+      "from": "accounting.payments",
+      "to": "accounting.journals",
+      "rel": "cash"
+    },
+    {
+      "from": "accounting.bills",
+      "to": "accounting.journals",
+      "rel": "expense / AP"
+    },
+    {
+      "from": "buying.landedCosts",
+      "to": "accounting.journals",
+      "rel": "inventory / AP"
+    },
+    {
+      "from": "quality.correctiveActions",
+      "to": "quality.nonconformances",
+      "rel": "needs"
+    },
+    {
+      "from": "manufacturing.maintenance",
+      "to": "accounting.assets",
+      "rel": "needs"
+    },
+    {
+      "from": "platform.users",
+      "to": "platform.roles",
+      "rel": "needs"
+    },
+    {
+      "from": "projects.workers",
+      "to": "projects.projects",
+      "rel": "needs"
+    },
+    {
+      "from": "projects.assignments",
+      "to": "projects.workers",
+      "rel": "needs"
+    },
+    {
+      "from": "projects.raci",
+      "to": "projects.projects",
+      "rel": "needs"
+    },
+    {
+      "from": "crm.listEntries",
+      "to": "crm.lists",
+      "rel": "needs"
+    },
+    {
+      "from": "crm.savedViews",
+      "to": "crm.lists",
+      "rel": "needs"
+    }
+  ]
+}

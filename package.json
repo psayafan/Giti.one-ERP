@@ -30,6 +30,7 @@
     "setup": "./setup.sh",
     "test": "node --test src/*.test.js train/*.test.js",
     "corpus": "node train/build-corpus.js",
+    "graph": "node src/graph.js",
     "db:up": "docker compose up -d"
   },
   "files": [

@@ -14,3 +14,5 @@ They are not an ISO certificate.
 | GITI-ISO-27001 | Information security records | ISO/IEC 27001:2022 | Issued |
 | GITI-ISO-55001 | Asset management records | ISO 55001:2024 | Issued |
 | GITI-PMP | PMP / PMBOK coverage | PMI PMBOK + ISO 21502 | Issued |
+| GITI-MVP | Minimum viable product | this repository | Issued |
+| GITI-GRAPH | Catalog graph | this repository | Issued |

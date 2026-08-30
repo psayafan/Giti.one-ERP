@@ -1,0 +1,189 @@
+---
+title: Catalog graph
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giti.one — catalog graph</title>
+    <style>
+      :root {
+        --ink: #1a1a18;
+        --muted: #6b675f;
+        --paper: #f7f4ee;
+        --gold: #b08d3e;
+        --line: #d9d3c7;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font: 16px/1.45 "Iowan Old Style", Palatino, Georgia, serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      header,
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.25rem 1.5rem;
+      }
+      header {
+        border-bottom: 2px solid var(--gold);
+      }
+      a {
+        color: var(--ink);
+      }
+      .note {
+        color: var(--muted);
+      }
+      .legend span {
+        display: inline-block;
+        margin: 0.2rem 0.8rem 0.2rem 0;
+      }
+      .dot {
+        display: inline-block;
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-right: 0.3rem;
+        vertical-align: middle;
+      }
+      .posts {
+        background: var(--gold);
+      }
+      .records {
+        background: var(--ink);
+      }
+      .slot {
+        background: var(--line);
+      }
+      svg {
+        width: 100%;
+        height: 520px;
+        background: #fffefb;
+        border: 1px solid var(--line);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      section {
+        background: #fffefb;
+        border: 1px solid var(--line);
+        padding: 0.6rem 0.75rem;
+      }
+      section h2 {
+        font-size: 0.95rem;
+        margin: 0 0 0.4rem;
+      }
+      button {
+        font: inherit;
+        font-size: 0.8rem;
+        border: 1px solid var(--line);
+        background: transparent;
+        margin: 0 0.2rem 0.25rem 0;
+        padding: 0.12rem 0.35rem;
+        cursor: default;
+      }
+      button.posts {
+        border-color: var(--gold);
+        background: transparent;
+        color: var(--ink);
+      }
+      button.records {
+        border-color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p><a href="./">Giti.one ERP</a> · public · free</p>
+      <h1>Catalog graph</h1>
+      <p>
+        Gold posts to the books. Black is a constrained record. Grey is a catalog slot — a name, not a working module.
+      </p>
+      <p class="note" id="counts"></p>
+      <p class="legend">
+        <span><i class="dot posts"></i>posts</span>
+        <span><i class="dot records"></i>record</span>
+        <span><i class="dot slot"></i>slot</span>
+      </p>
+    </header>
+    <main>
+      <svg id="net" viewBox="0 0 1000 520" role="img" aria-label="Posting and record links"></svg>
+      <div class="grid" id="grid"></div>
+    </main>
+    <script type="module">
+      const data = await fetch("./catalog-graph.json").then((r) => r.json());
+      document.getElementById("counts").textContent =
+        `${data.counts.posts} post · ${data.counts.records} record · ${data.counts.slot} slot`;
+
+      const working = data.edges.filter((e) => e.rel !== "catalog");
+      const ids = [...new Set(working.flatMap((e) => [e.from, e.to]))];
+      const byId = Object.fromEntries(data.nodes.map((n) => [n.id, n]));
+      const svg = document.getElementById("net");
+      const cx = 500;
+      const cy = 260;
+      const r = 210;
+      ids.forEach((id, i) => {
+        const a = (2 * Math.PI * i) / ids.length - Math.PI / 2;
+        const node = byId[id];
+        if (!node) return;
+        node._x = cx + r * Math.cos(a);
+        node._y = cy + r * Math.sin(a);
+      });
+      for (const edge of working) {
+        const a = byId[edge.from];
+        const b = byId[edge.to];
+        if (!a || !b) continue;
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", a._x);
+        line.setAttribute("y1", a._y);
+        line.setAttribute("x2", b._x);
+        line.setAttribute("y2", b._y);
+        line.setAttribute("stroke", "#d9d3c7");
+        svg.appendChild(line);
+      }
+      for (const id of ids) {
+        const node = byId[id];
+        if (!node || node._x == null) continue;
+        const fill =
+          node.kind === "posts" ? "#b08d3e" : node.kind === "records" ? "#1a1a18" : "#d9d3c7";
+        const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        c.setAttribute("cx", node._x);
+        c.setAttribute("cy", node._y);
+        c.setAttribute("r", 6);
+        c.setAttribute("fill", fill);
+        svg.appendChild(c);
+        const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        t.setAttribute("x", node._x + 8);
+        t.setAttribute("y", node._y + 4);
+        t.setAttribute("font-size", "11");
+        t.setAttribute("font-family", "Georgia, serif");
+        t.textContent = node.module || node.id;
+        svg.appendChild(t);
+      }
+
+      const grid = document.getElementById("grid");
+      const domains = [...new Set(data.nodes.filter((n) => n.kind !== "domain").map((n) => n.domain))];
+      for (const domain of domains) {
+        const sec = document.createElement("section");
+        const h = document.createElement("h2");
+        h.textContent = domain;
+        sec.appendChild(h);
+        for (const node of data.nodes.filter((n) => n.domain === domain && n.module)) {
+          const b = document.createElement("button");
+          b.className = node.kind;
+          b.textContent = node.module;
+          sec.appendChild(b);
+        }
+        grid.appendChild(sec);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Giti.one ERP — MVP</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm 20mm;
+      }
+      :root {
+        --ink: #1a1a18;
+        --muted: #5c584f;
+        --gold: #b08d3e;
+        --line: #d4cec2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+        font: 11.5pt/1.45 "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 650;
+        page-break-after: avoid;
+      }
+      h1 {
+        font-size: 22pt;
+        letter-spacing: 0.04em;
+        margin: 0 0 0.4rem;
+      }
+      h2 {
+        font-size: 13.5pt;
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 0.2rem;
+        margin: 1.4rem 0 0.6rem;
+      }
+      h3 {
+        font-size: 11.5pt;
+        margin: 1rem 0 0.35rem;
+      }
+      p,
+      li {
+        margin: 0 0 0.45rem;
+      }
+      .meta,
+      .muted {
+        color: var(--muted);
+        font-size: 9.5pt;
+      }
+      .banner {
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.1rem;
+      }
+      .cover-rule {
+        margin-top: 0.35rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10pt;
+        margin: 0.4rem 0 0.8rem;
+      }
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+        padding: 0.28rem 0.35rem 0.28rem 0;
+      }
+      th {
+        color: var(--muted);
+        font-weight: 600;
+      }
+      code {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 9.5pt;
+      }
+      pre {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 9.5pt;
+        background: #f7f4ee;
+        border: 1px solid var(--line);
+        padding: 0.65rem 0.75rem;
+        white-space: pre-wrap;
+      }
+      .note {
+        border-left: 3px solid var(--gold);
+        padding: 0.15rem 0 0.15rem 0.7rem;
+        margin: 0.7rem 0 1rem;
+      }
+      .keep {
+        page-break-inside: avoid;
+      }
+      footer {
+        margin-top: 1.5rem;
+        color: var(--muted);
+        font-size: 9pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="banner">
+      <p class="meta">DOCUMENT GITI-MVP · Version 1.0 · 31 August 2026 · Classification: public</p>
+      <h1>Giti.one ERP</h1>
+      <p>Minimum viable product — English</p>
+      <p class="meta cover-rule">Prepared by Poriya Sayafan. This document is not an ISO or PMI certificate.</p>
+    </header>
+
+    <h2>1. What this is</h2>
+    <p>
+      Giti.one is a Node.js ERP in git. A purchase order is a promise. It is not the books. When goods are received or delivered, Giti.one posts inventory and a balanced journal — then AR, AP, and cash. ISO 9001, ISO/IEC 27001, and ISO 55001 records and a PMP map live in the same catalog.
+    </p>
+    <p>
+      Source: <code>https://github.com/psayafan/Giti.one-ERP</code> · Site: <code>https://psayafan.github.io/Giti.one-ERP/</code> · License: AGPL-3.0-or-later. The <strong>Giti.one</strong> name is a trademark of Poriya Sayafan.
+    </p>
+    <div class="note">
+      <p>This MVP is the path that posts and the records that the tests prove. A name in the catalog is not a working module.</p>
+    </div>
+
+    <h2>2. Doctrine</h2>
+    <ol>
+      <li>One set of books. Debit equals credit.</li>
+      <li>A module is <code>list</code> / <code>add</code>. If it moves goods or money, it posts.</li>
+      <li>Documents (purchase order, sale order) are not execution. Receipt and delivery are.</li>
+      <li>ISO packs are records in the ERP, not a certification claim.</li>
+      <li>Catalog ids stay English. Labels are English and Persian.</li>
+    </ol>
+
+    <h2>3. What the MVP actually does</h2>
+    <h3>Buy → stock → sell → cash</h3>
+    <p>The demo in <code>src/cli.js</code> (<code>seedDemo</code>) and <code>./setup.sh</code> runs this cycle:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Document</th>
+          <th>What posts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Purchase order <code>po-1</code></td>
+          <td>Promise only. No journal.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Receipt <code>r-1</code> (10 × 8.00)</td>
+          <td>Stock +10. Inventory debit 80, GRNI credit 80.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Sale order <code>so-1</code></td>
+          <td>Promise only. No journal.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Delivery <code>d-1</code> (qty 3)</td>
+          <td>Stock −3. COGS debit 24, inventory credit 24.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Invoice <code>inv-1</code> (60.00)</td>
+          <td>AR debit 60, revenue credit 60.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Payment <code>pay-1</code> (60.00)</td>
+          <td>Cash debit 60, AR credit 60.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>After the demo: on-hand <strong>7</strong> (<code>SKU-1</code> / <code>MAIN</code>), cash 60, GRNI 80, inventory 56, trial <strong>balanced</strong>. Party names are <code>vendor</code>, <code>customer</code>, <code>item</code>, <code>warehouse</code>.</p>
+
+    <div class="keep">
+      <h3>Other postings that already run</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Module</th>
+            <th>Books</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vendor bill (unmatched expense)</td>
+            <td><code>accounting.bills</code></td>
+            <td>Expense / AP</td>
+          </tr>
+          <tr>
+            <td>Vendor payment</td>
+            <td><code>accounting.payments</code> with <code>billId</code></td>
+            <td>AP / cash</td>
+          </tr>
+          <tr>
+            <td>Landed cost</td>
+            <td><code>buying.landedCosts</code></td>
+            <td>Inventory / AP</td>
+          </tr>
+          <tr>
+            <td>Warehouse transfer</td>
+            <td><code>stock.warehouseTransfers</code></td>
+            <td>Qty moves; inventory value unchanged</td>
+          </tr>
+          <tr>
+            <td>Inventory adjustment</td>
+            <td><code>stock.inventoryAdjustments</code></td>
+            <td>On-hand changes</td>
+          </tr>
+          <tr>
+            <td>Stock move</td>
+            <td><code>stock.stockMoves</code></td>
+            <td>Inbound / outbound qty</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Receipts that name a purchase order cannot exceed remaining order qty. Deliveries cannot ship without stock and cannot exceed remaining sale-order qty.</p>
+    </div>
+
+    <h2>4. ISO and PMP records</h2>
+    <p>These are records and a map inside the catalog. They are not certificates.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Pack</th>
+          <th>What is in the MVP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ISO 9001:2015</td>
+          <td>Documents (Issued needs title and version), nonconformances, CAPA linked to an NC, internal audits, management reviews.</td>
+        </tr>
+        <tr>
+          <td>ISO/IEC 27001:2022</td>
+          <td>Users bound to roles, audit log on journal post, incidents (open / contained / closed), asset inventory.</td>
+        </tr>
+        <tr>
+          <td>ISO 55001:2024</td>
+          <td>Asset register (in-service / idle / disposed) and maintenance that names an asset.</td>
+        </tr>
+        <tr>
+          <td>PMP / PMBOK + ISO 21502</td>
+          <td><code>projects.projects.processGroup</code> is initiating, planning, executing, monitoring, or closing. Charters, stakeholders, WBS, schedules, costs, communications, risks, and changes map on the same books.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>PostgreSQL views in <code>schema.sql</code> read those rows from one table, <code>erp_row</code>.</p>
+
+    <h2>5. How to run it</h2>
+    <pre>git clone https://github.com/psayafan/Giti.one-ERP.git
+cd Giti.one-ERP
+./setup.sh</pre>
+    <p>That installs dependencies, runs tests, starts PostgreSQL when Docker is available, loads the demo, and prints the books. Persian CLI: <code>./setup.sh --lang fa</code>.</p>
+    <p>Local UI (this machine only, not a hosted product):</p>
+    <pre>npm start
+# open http://127.0.0.1:3847</pre>
+    <p>Bind is <code>127.0.0.1</code>. Default port 3847 (<code>GITI_PORT</code> to change). Books first; catalog is <code>list</code> / <code>add</code>. English and Persian.</p>
+    <p>Without Docker the same books print in memory. Need: Node.js 20 or newer. Postgres from compose uses demo user <code>giti</code> on <code>127.0.0.1:5432</code> — demo only.</p>
+
+    <h2>6. What the catalog is — and is not</h2>
+    <p>
+      Every module in <code>src/catalog.js</code> has <code>list</code> / <code>add</code>. That is the extension rule (see <code>AGENTS.md</code>). HR, POS, manufacturing orders, CRM lists, and similar rows are catalog slots until they post. Do not present them as a finished ERP.
+    </p>
+    <p>This MVP is not a public HTTP product, not a bank, not an FP&amp;A agent, and not an AI CRM. Feature requests: GitHub Issues or mail psayafan@hotmail.com.</p>
+
+    <h2>7. Tests and files</h2>
+    <p><code>npm test</code> must pass. The buy–sell–cash cycle, supply postings, ISO links, PMP process groups, locale (English and Persian), local UI, and <code>erp_row</code> round-trip are covered.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Place</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Source</td>
+          <td>github.com/psayafan/Giti.one-ERP</td>
+        </tr>
+        <tr>
+          <td>Wiki</td>
+          <td>github.com/psayafan/Giti.one-ERP/wiki</td>
+        </tr>
+        <tr>
+          <td>Site</td>
+          <td>psayafan.github.io/Giti.one-ERP</td>
+        </tr>
+        <tr>
+          <td>Requirements / install / standards</td>
+          <td><code>docs/REQUIREMENTS.md</code>, <code>docs/INSTALL.md</code>, <code>docs/STANDARDS.md</code></td>
+        </tr>
+        <tr>
+          <td>ISO register</td>
+          <td><code>docs/iso/REGISTER.md</code></td>
+        </tr>
+        <tr>
+          <td>PMP map</td>
+          <td><code>docs/PMP.md</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>8. Support</h2>
+    <p>If the work is useful, there is no obligation: PayPal <code>https://paypal.me/psayafan</code> · GitHub Sponsors <code>https://github.com/sponsors/psayafan</code>. Security: <code>SECURITY.md</code> or psayafan@hotmail.com.</p>
+
+    <footer>
+      GITI-MVP · Giti.one ERP · Poriya Sayafan · 31 August 2026 · Not a certificate · AGPL-3.0-or-later
+    </footer>
+  </body>
+</html>

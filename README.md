@@ -37,6 +37,8 @@ Without Docker the same books print in memory.
 | Standards | [docs/STANDARDS.md](docs/STANDARDS.md) |
 | ISO register | [docs/iso/REGISTER.md](docs/iso/REGISTER.md) |
 | PMP | [docs/PMP.md](docs/PMP.md) |
+| MVP | [docs/GITI-MVP.md](docs/GITI-MVP.md) · [PDF](docs/GITI-MVP.pdf) |
+| Catalog graph | [docs/GRAPH.md](docs/GRAPH.md) |
 
 ## Doctrine
 

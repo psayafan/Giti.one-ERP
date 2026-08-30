@@ -8,6 +8,8 @@ theme: jekyll-theme-primer
 markdown: kramdown
 kramdown:
   input: GFM
+exclude:
+  - mvp-print.html
 defaults:
   - scope:
       path: ""
