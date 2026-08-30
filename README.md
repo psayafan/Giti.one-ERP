@@ -2,9 +2,11 @@
 
 By **Poriya Sayafan**. Copyright (C) 2026 Poriya Sayafan.
 
-Open-source ERP in Node.js. **Finance, inventory, and supply chain post together:** buy into stock and AP, sell out of stock with COGS, invoice AR, take cash, keep a balanced trial.
+Open-source ERP in Node.js. Goods and money post a balanced journal. ISO 9001, 27001, and 55001 records live in named modules. PMP process groups and knowledge areas map onto `projects.*`. PostgreSQL stores every module as a row in `erp_row`.
 
 Hosted copies that you modify must share source under **AGPL-3.0-or-later**. The **Giti.one** name is a trademark. See [TRADEMARKS.md](TRADEMARKS.md).
+
+This repository is **not** an ISO or PMI certificate.
 
 ## Run
 
@@ -13,47 +15,25 @@ node src/cli.js
 npm test
 ```
 
-```text
-Giti.one ERP
-
-buy       po-1        10 × 8.00
-receipt   r-1       MAIN      +10
-sell      so-1         3 × 20.00
-delivery  d-1       MAIN      -3
-invoice   inv-1     c1            60.00
-payment   pay-1     inv-1         60.00
-
-stock     SKU-1     MAIN         7
+```bash
+docker compose up -d
+# DATABASE_URL=postgres://giti:giti@127.0.0.1:5432/giti
 ```
 
-Node 20+. No extra packages.
+Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` / `restoreApp`).
 
-## What posts today
+## Doctrine
 
-| Flow | `add` | Effect |
-|---|---|---|
-| Purchase receipt | `buying.receipts` | stock +, Dr inventory / Cr AP |
-| Delivery | `stock.deliveries` | stock −, Dr COGS / Cr inventory |
-| Warehouse transfer | `stock.warehouseTransfers` | stock MAIN → other |
-| Landed cost | `buying.landedCosts` | Dr inventory / Cr AP |
-| Customer invoice | `accounting.invoices` | Dr AR / Cr revenue |
-| Customer payment | `accounting.payments` | Dr cash / Cr AR |
-| Vendor bill | `accounting.bills` | Dr expense / Cr AP |
-| Vendor payment | `accounting.payments` with `billId` | Dr AP / Cr cash |
+1. One set of books. Debit equals credit.
+2. A module is `list` / `add`. If it moves goods or money, it posts.
+3. Documents (PO, SO) are not execution. Receipt and delivery are.
+4. ISO packs are records in the ERP, not a certification claim.
 
-Purchase orders and sale orders are the documents. Receipts and deliveries are what move stock. Other catalog modules (`src/catalog.js`) still use `list` / `add` until they grow the same way.
+## ISO and PMP
 
-## Layout
-
-```text
-src/catalog.js     modules
-src/store.js       list / add
-src/ledger.js      journal + trial balance
-src/stock.js       on-hand qty and value
-src/supply.js      buy / receive / deliver / transfer
-src/index.js       createApp()
-src/cli.js         one buy–sell–cash cycle
-```
+- [ISO register](docs/iso/REGISTER.md)
+- [ISO 9001](docs/iso/GITI-ISO-9001.md) · [ISO 27001](docs/iso/GITI-ISO-27001.md) · [ISO 55001](docs/iso/GITI-ISO-55001.md)
+- [PMP / PMBOK](docs/PMP.md)
 
 ## License
 

@@ -16,11 +16,19 @@ import {
   wrapReceipts,
   wrapTransfers,
 } from "./supply.js";
+import {
+  ASSET_STATUSES,
+  INCIDENT_STATUSES,
+  PROCESS_GROUPS,
+  wrapDocuments,
+  wrapLinked,
+  wrapStatus,
+} from "./iso.js";
 
 export { MODULES, domains };
 export { LEDGER_ACCOUNTS, createLedger };
 
-export function createApp() {
+export function createApp(options = {}) {
   const app = { kind: "erp" };
   for (const domain of domains()) {
     app[domain] = {};
@@ -28,10 +36,26 @@ export function createApp() {
   for (const module of MODULES) {
     app[module.domain][module.id] = createStore();
   }
-  for (const account of LEDGER_ACCOUNTS) {
-    app.accounting.accounts.add(account);
+  if (options.hydrate) {
+    for (const row of options.hydrate) {
+      app[row.domain][row.module].load([row.payload]);
+    }
+  } else {
+    for (const account of LEDGER_ACCOUNTS) {
+      app.accounting.accounts.add(account);
+    }
   }
-  const ledger = createLedger(app.accounting.journals);
+  const auditStore = app.platform.auditLogs;
+  const ledger = createLedger(app.accounting.journals, (entry) => {
+    auditStore.add({
+      id: `aud-${entry.id}`,
+      action: "journal.post",
+      ref: entry.id,
+      debit: entry.debit,
+      credit: entry.credit,
+      amount: entry.amount,
+    });
+  });
   const stock = createStockEngine(app.stock.stockMoves, app.stock.stockQuants);
   app.stock.stockMoves = wrapStockMoves(app.stock.stockMoves, stock);
   app.stock.deliveries = wrapDeliveries(
@@ -39,6 +63,7 @@ export function createApp() {
     app.stock.stockMoves,
     stock,
     ledger,
+    app.sales.saleOrders,
   );
   app.stock.warehouseTransfers = wrapTransfers(
     app.stock.warehouseTransfers,
@@ -53,11 +78,55 @@ export function createApp() {
     app.buying.receipts,
     app.stock.stockMoves,
     ledger,
+    app.buying.purchaseOrders,
   );
   app.buying.landedCosts = wrapLandedCosts(app.buying.landedCosts, ledger);
   app.accounting.invoices = wrapInvoiceStore(app.accounting.invoices, ledger);
   app.accounting.payments = wrapPaymentStore(app.accounting.payments, ledger);
-  app.accounting.bills = wrapBills(app.accounting.bills, ledger);
+  app.accounting.bills = wrapBills(
+    app.accounting.bills,
+    ledger,
+    app.buying.purchaseOrders,
+    app.buying.receipts,
+  );
+  app.quality.documents = wrapDocuments(app.quality.documents);
+  app.quality.correctiveActions = wrapLinked(
+    app.quality.correctiveActions,
+    app.quality.nonconformances,
+    "nonconformanceId",
+    "corrective action needs a nonconformance",
+  );
+  app.accounting.assets = wrapStatus(
+    app.accounting.assets,
+    "status",
+    ASSET_STATUSES,
+    "asset status",
+  );
+  app.manufacturing.maintenance = wrapLinked(
+    app.manufacturing.maintenance,
+    app.accounting.assets,
+    "assetId",
+    "maintenance needs an asset",
+  );
+  app.platform.users = wrapLinked(
+    app.platform.users,
+    app.platform.roles,
+    "roleId",
+    "user needs a role",
+  );
+  app.platform.incidents = wrapStatus(
+    app.platform.incidents,
+    "status",
+    INCIDENT_STATUSES,
+    "incident status",
+  );
+  app.projects.projects = wrapStatus(
+    app.projects.projects,
+    "processGroup",
+    PROCESS_GROUPS,
+    "process group",
+  );
+  stock.rebuild();
   app.ledger = ledger;
   app.stockEngine = stock;
   return app;

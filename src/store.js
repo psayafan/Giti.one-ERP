@@ -12,5 +12,10 @@ export function createStore() {
       rows.push(row);
       return { ...row };
     },
+    load(records) {
+      for (const record of records) {
+        rows.push({ ...record, id: String(record.id) });
+      }
+    },
   };
 }

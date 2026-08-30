@@ -4,6 +4,7 @@ export const LEDGER_ACCOUNTS = [
   { id: "cash", name: "Cash", type: "asset" },
   { id: "AR", name: "Accounts receivable", type: "asset" },
   { id: "AP", name: "Accounts payable", type: "liability" },
+  { id: "GRNI", name: "Goods received not invoiced", type: "liability" },
   { id: "inventory", name: "Inventory", type: "asset" },
   { id: "cogs", name: "Cost of goods sold", type: "expense" },
   { id: "expense", name: "Expense", type: "expense" },
@@ -11,7 +12,7 @@ export const LEDGER_ACCOUNTS = [
   { id: "equity", name: "Equity", type: "equity" },
 ];
 
-export function createLedger(journalStore) {
+export function createLedger(journalStore, onPost) {
   function post({ id, debit, credit, amount, ref }) {
     const n = Number(amount);
     if (!Number.isFinite(n) || n <= 0) {
@@ -20,13 +21,17 @@ export function createLedger(journalStore) {
     if (!debit || !credit || debit === credit) {
       throw new Error("debit and credit must be different accounts");
     }
-    return journalStore.add({
+    const row = journalStore.add({
       id,
       debit: String(debit),
       credit: String(credit),
       amount: n,
       ref: ref == null ? undefined : String(ref),
     });
+    if (typeof onPost === "function") {
+      onPost({ ...row });
+    }
+    return { ...row };
   }
 
   function balance(accountId) {
