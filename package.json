@@ -2,7 +2,7 @@
   "name": "giti-one-erp",
   "version": "0.0.1",
   "private": false,
-  "description": "Giti.one ERP — Node.js ledger, invoices, inventory, tax",
+  "description": "Giti.one ERP — Node.js finance, inventory, and supply chain",
   "author": "Poriya Sayafan <psayafan@hotmail.com>",
   "license": "AGPL-3.0-or-later",
   "type": "module",
@@ -12,7 +12,11 @@
   "exports": {
     ".": "./src/index.js"
   },
+  "bin": {
+    "giti-one-erp": "./src/cli.js"
+  },
   "scripts": {
+    "start": "node src/cli.js",
     "test": "node --test src/index.test.js"
   },
   "files": [
