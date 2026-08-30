@@ -79,6 +79,9 @@ const FA_MODULES = {
   "crm.pipelines": "قیف فروش",
   "crm.activities": "فعالیت",
   "crm.campaigns": "کمپین",
+  "crm.lists": "فهرست",
+  "crm.notes": "یادداشت",
+  "crm.meetings": "جلسه",
   "pos.posSessions": "نشست صندوق",
   "pos.posOrders": "فروش صندوق",
   "hr.employees": "کارمند",
@@ -164,6 +167,19 @@ const FA_UI = {
   credit: "بستانکار",
   balanced: "تراز",
   unbalanced: "نامتراز",
+  books: "دفتر",
+  catalog: "کاتالوگ",
+  add: "افزودن",
+  trial: "تراز آزمایشی",
+  journals: "روزنامه",
+  localOnly: "فقط روی این رایانه. محصول میزبانی‌شده نیست.",
+  posts: "ثبت در دفتر",
+  records: "رکورد",
+  slot: "خانهٔ کاتالوگ",
+  empty: "خالی",
+  error: "خطا",
+  jsonHint: "یک شیء JSON با id",
+  doctrine: "سفارش خرید وعده است. رسید و تحویل دفتر را می‌نویسند.",
 };
 
 const EN_UI = {
@@ -183,6 +199,19 @@ const EN_UI = {
   credit: "Cr",
   balanced: "balanced",
   unbalanced: "UNBALANCED",
+  books: "Books",
+  catalog: "Catalog",
+  add: "Add",
+  trial: "Trial balance",
+  journals: "Journal",
+  localOnly: "Local only. Not a hosted product.",
+  posts: "posts",
+  records: "record",
+  slot: "catalog slot",
+  empty: "empty",
+  error: "error",
+  jsonHint: "JSON object with id",
+  doctrine: "A purchase order is a promise. Receipt and delivery post.",
 };
 
 function titleCase(id) {
@@ -220,6 +249,11 @@ export function t(lang, key) {
   const locale = resolveLang(lang);
   const table = locale === "fa" ? FA_UI : EN_UI;
   return table[key] ?? key;
+}
+
+export function uiLabels(lang) {
+  const locale = resolveLang(lang);
+  return { ...(locale === "fa" ? FA_UI : EN_UI) };
 }
 
 export function domainLabel(lang, domain) {

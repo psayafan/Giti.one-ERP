@@ -11,6 +11,7 @@ import {
   moduleLabel,
   resolveLang,
   t,
+  uiLabels,
 } from "./locale.js";
 
 describe("locale", () => {
@@ -25,8 +26,10 @@ describe("locale", () => {
   it("covers every catalog module in Persian", () => {
     assert.deepEqual(missingFaLabels(), []);
     assert.equal(moduleLabel("fa", "buying", "receipts"), "رسید انبار");
+    assert.equal(moduleLabel("fa", "crm", "notes"), "یادداشت");
     assert.equal(accountLabel("fa", "GRNI"), "کالای رسیده فاکتورنشده");
     assert.equal(LANGS.includes("fa"), true);
+    assert.match(uiLabels("en").localOnly, /Local only/);
   });
 
   it("renders the demo books in Persian", () => {

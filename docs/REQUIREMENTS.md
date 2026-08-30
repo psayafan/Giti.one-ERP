@@ -25,6 +25,7 @@ What you need to run Giti.one ERP from this repository.
 - A Node.js ERP. Modules are `list` / `add` in memory.
 - Optional PostgreSQL (`erp_row`) via `./setup.sh`.
 - CLI demo in English and Persian.
+- Local UI on `127.0.0.1` (`npm start`).
 - ISO 9001 / 27001 / 55001 records and a PMP map in the same catalog.
 
 ## What this tree is not
@@ -32,6 +33,7 @@ What you need to run Giti.one ERP from this repository.
 - Not a hosted product with a public HTTP server.
 - Not an ISO or PMI certificate.
 - Not a separate QMS, SIEM, or project tool beside the books.
+- Not an AI CRM, inbox sync, or agent product.
 
 ## Ports and demo credentials
 

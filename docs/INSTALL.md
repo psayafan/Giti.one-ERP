@@ -24,6 +24,14 @@ Persian CLI:
 ./setup.sh --lang fa
 ```
 
+Local UI on this machine only (not a hosted product):
+
+```bash
+npm start
+```
+
+Then open http://127.0.0.1:3847. Books first; catalog is `list` / `add`. English and Persian. Bind is `127.0.0.1`. Port `GITI_PORT` if you need another (default 3847).
+
 ## What the script does
 
 1. Checks Node.js 20+.
@@ -39,6 +47,7 @@ Persian CLI:
 ```bash
 node src/cli.js
 node src/cli.js --lang fa
+npm start
 npm test
 docker compose up -d
 DATABASE_URL=postgres://giti:giti@127.0.0.1:5432/giti node src/boot.js

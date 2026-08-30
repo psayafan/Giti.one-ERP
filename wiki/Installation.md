@@ -10,6 +10,8 @@ cd Giti.one-ERP
 
 Persian: `./setup.sh --lang fa`
 
+Local UI: `npm start` then http://127.0.0.1:3847 (this machine only).
+
 If Docker is missing, the same books still print in memory.
 
 Full text: [docs/INSTALL.md](https://github.com/psayafan/Giti.one-ERP/blob/main/docs/INSTALL.md)

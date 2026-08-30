@@ -16,6 +16,14 @@ cd Giti.one-ERP
 
 Persian CLI: `./setup.sh --lang fa`
 
+Local UI (this machine only):
+
+```bash
+npm start
+```
+
+Open http://127.0.0.1:3847 — English and Persian. Not a hosted product.
+
 Without Docker the same books print in memory.
 
 ## Documents

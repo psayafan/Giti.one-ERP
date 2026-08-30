@@ -89,3 +89,7 @@ else
   echo
   echo "Postgres skipped. Books above are in memory."
 fi
+
+echo
+echo "Local UI (this machine only): npm start"
+echo "Then open http://127.0.0.1:3847"

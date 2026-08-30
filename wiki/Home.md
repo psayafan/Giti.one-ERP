@@ -16,6 +16,8 @@ cd Giti.one-ERP
 
 Persian CLI: `./setup.sh --lang fa`
 
+Local UI: `npm start` then http://127.0.0.1:3847 (this machine only).
+
 ## Pages
 
 - [[Requirements]]

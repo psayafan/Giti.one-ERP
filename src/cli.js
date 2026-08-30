@@ -3,7 +3,7 @@
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { createApp } from "./index.js";
-import { accountLabel, langFromArgv, t } from "./locale.js";
+import { accountLabel, langFromArgv, resolveLang, t } from "./locale.js";
 
 function money(n) {
   return Number(n).toFixed(2).padStart(10);
@@ -74,6 +74,40 @@ export function seedDemo(app) {
   app.projects.risks.add({ id: "risk-1", projectId: "p-1" });
   app.projects.changes.add({ id: "chg-1", projectId: "p-1" });
   return app;
+}
+
+export function booksSnapshot(app, lang = "en") {
+  const trial = app.ledger.trialBalance();
+  const debitTotal = trial.rows.reduce((sum, row) => sum + row.debit, 0);
+  const creditTotal = trial.rows.reduce((sum, row) => sum + row.credit, 0);
+  return {
+    title: t(lang, "title"),
+    lang: resolveLang(lang),
+    purchaseOrders: app.buying.purchaseOrders.list(),
+    receipts: app.buying.receipts.list(),
+    saleOrders: app.sales.saleOrders.list(),
+    deliveries: app.stock.deliveries.list(),
+    invoices: app.accounting.invoices.list(),
+    payments: app.accounting.payments.list(),
+    documents: app.quality.documents.list(),
+    users: app.platform.users.list(),
+    assets: app.accounting.assets.list(),
+    projects: app.projects.projects.list(),
+    stock: app.stockEngine.snapshot(),
+    journals: app.accounting.journals.list(),
+    trial: {
+      rows: trial.rows.map((row) => ({
+        accountId: row.accountId,
+        label: accountLabel(lang, row.accountId),
+        debit: row.debit,
+        credit: row.credit,
+        net: row.net,
+      })),
+      debitTotal,
+      creditTotal,
+      balanced: trial.balanced,
+    },
+  };
 }
 
 export function renderBooks(app, lang = "en") {
