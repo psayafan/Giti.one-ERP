@@ -18,7 +18,7 @@ cd Giti.one-ERP
 
 `./setup.sh` installs npm dependencies, runs tests, starts PostgreSQL when Docker is available, loads the demo, and prints the books.
 
-فارسی:
+Persian CLI:
 
 ```bash
 ./setup.sh --lang fa

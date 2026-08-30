@@ -5,6 +5,7 @@ They are not an ISO certificate.
 
 | ID | Title | Standard | Status |
 |---|---|---|---|
+| GITI-SUP | Support | this repository | Issued |
 | GITI-REQ | Requirements | this repository | Issued |
 | GITI-INS | Installation | this repository | Issued |
 | GITI-STD | Standards | this repository | Issued |

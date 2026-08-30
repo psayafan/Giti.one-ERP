@@ -2,25 +2,33 @@
 
 By **Poriya Sayafan**. Copyright (C) 2026 Poriya Sayafan.
 
-A purchase order is a promise. It is not the books. Giti.one posts inventory and a **balanced journal** when goods are received or delivered — then AR, AP, and cash. ISO 9001 / 27001 / 55001 records and a PMP map live in the same catalog, not in a folder beside the system. PostgreSQL stores every module in one table: `erp_row`.
+A purchase order is a promise. It is not the books. When goods are received or delivered, Giti.one posts inventory and a balanced journal — then AR, AP, and cash. ISO 9001, 27001, and 55001 records and a PMP map live in the same catalog.
 
-Hosted copies that you modify must share source under **AGPL-3.0-or-later**. The **Giti.one** name is a trademark. See [TRADEMARKS.md](TRADEMARKS.md).
-
-This repository is **not** an ISO or PMI certificate.
-
-Standards site: [psayafan.github.io/Giti.one-ERP](https://psayafan.github.io/Giti.one-ERP/).
+This repository is **not** an ISO or PMI certificate. The **Giti.one** name is a trademark. Hosted copies that you modify must share source under **AGPL-3.0-or-later**.
 
 ## Run
 
 ```bash
+git clone https://github.com/psayafan/Giti.one-ERP.git
+cd Giti.one-ERP
 ./setup.sh
 ```
 
-That installs dependencies, runs tests, starts Postgres (Colima + Docker CLI on macOS if Docker is missing), loads the demo, and prints the books. Persian CLI: `./setup.sh --lang fa`.
+Persian CLI: `./setup.sh --lang fa`
 
-Without Docker it still prints the same books in memory.
+Without Docker the same books print in memory.
 
-Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` / `restoreApp`).
+## Documents
+
+| Place | Address |
+|---|---|
+| Wiki | [github.com/psayafan/Giti.one-ERP/wiki](https://github.com/psayafan/Giti.one-ERP/wiki) |
+| Site | [psayafan.github.io/Giti.one-ERP](https://psayafan.github.io/Giti.one-ERP/) |
+| Requirements | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) |
+| Installation | [docs/INSTALL.md](docs/INSTALL.md) |
+| Standards | [docs/STANDARDS.md](docs/STANDARDS.md) |
+| ISO register | [docs/iso/REGISTER.md](docs/iso/REGISTER.md) |
+| PMP | [docs/PMP.md](docs/PMP.md) |
 
 ## Doctrine
 
@@ -28,23 +36,17 @@ Schema: [`schema.sql`](schema.sql). Save/load: `src/postgres.js` (`persistApp` /
 2. A module is `list` / `add`. If it moves goods or money, it posts.
 3. Documents (PO, SO) are not execution. Receipt and delivery are.
 4. ISO packs are records in the ERP, not a certification claim.
-5. Catalog ids stay English. Labels are English and Persian (`src/locale.js`).
+5. Catalog ids stay English. Labels are English and Persian.
 
-## ISO and PMP
+## Support
 
-- [Requirements](docs/REQUIREMENTS.md) · [Installation](docs/INSTALL.md) · [Standards](docs/STANDARDS.md)
-- [ISO register](docs/iso/REGISTER.md)
-- [ISO 9001](docs/iso/GITI-ISO-9001.md) · [ISO 27001](docs/iso/GITI-ISO-27001.md) · [ISO 55001](docs/iso/GITI-ISO-55001.md)
-- [PMP / PMBOK](docs/PMP.md)
+If the work is useful:
+
+- [Donate with PayPal](https://paypal.me/psayafan)
+- [GitHub Sponsors](https://github.com/sponsors/psayafan)
+
+Issues: [github.com/psayafan/Giti.one-ERP/issues](https://github.com/psayafan/Giti.one-ERP/issues). Security: [SECURITY.md](SECURITY.md) or psayafan@hotmail.com.
 
 ## License
 
-[GNU Affero General Public License v3.0 or later](LICENSE).
-
-## Security
-
-[SECURITY.md](SECURITY.md) — mail psayafan@hotmail.com.
-
-## Support the work
-
-This is a public AGPL project by Poriya Sayafan. If it is useful: [PayPal](https://paypal.me/psayafan) or [GitHub Sponsors](https://github.com/sponsors/psayafan).
+[GNU Affero General Public License v3.0 or later](LICENSE) · [Contributing](CONTRIBUTING.md) · [Code of conduct](CODE_OF_CONDUCT.md) · [Trademarks](TRADEMARKS.md)

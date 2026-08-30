@@ -32,7 +32,7 @@ How this repository is kept. This page is programming and document control for G
 5. Documents (PO, SO) are not execution. Receipt and delivery are.
 6. ISO 9001 / 27001 / 55001 records and PMP objects follow `src/iso.js` and `docs/PMP.md`.
 7. Persist with `src/postgres.js` into `erp_row`.
-8. Catalog ids stay English. Labels are English and فارسی in `src/locale.js`.
+8. Catalog ids stay English. Labels are English and Persian in `src/locale.js`.
 9. Do not commit `.env`, keys, or customer data.
 10. English for commits and docs. `npm test` must pass.
 

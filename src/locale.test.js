@@ -22,14 +22,14 @@ describe("locale", () => {
     assert.equal(langFromArgv(["node", "cli"], { GITI_LANG: "fa" }), "fa");
   });
 
-  it("covers every catalog module in فارسی", () => {
+  it("covers every catalog module in Persian", () => {
     assert.deepEqual(missingFaLabels(), []);
     assert.equal(moduleLabel("fa", "buying", "receipts"), "رسید انبار");
     assert.equal(accountLabel("fa", "GRNI"), "کالای رسیده فاکتورنشده");
     assert.equal(LANGS.includes("fa"), true);
   });
 
-  it("renders the demo books in فارسی", () => {
+  it("renders the demo books in Persian", () => {
     const out = renderBooks(seedDemo(createApp()), "fa");
     assert.match(out, /گیتی\.وان ERP/);
     assert.match(out, /رسید/);

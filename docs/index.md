@@ -27,6 +27,7 @@ Persian CLI: `./setup.sh --lang fa`
 | GITI-REQ | [Requirements](REQUIREMENTS.html) |
 | GITI-INS | [Installation](INSTALL.html) |
 | GITI-STD | [Standards](STANDARDS.html) |
+| GITI-SUP | [Support](https://github.com/psayafan/Giti.one-ERP/blob/main/SUPPORT.md) |
 | GITI-ISO-000 | [ISO register](iso/REGISTER.html) |
 | GITI-ISO-9001 | [ISO 9001](iso/GITI-ISO-9001.html) |
 | GITI-ISO-27001 | [ISO 27001](iso/GITI-ISO-27001.html) |

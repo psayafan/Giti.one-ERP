@@ -33,6 +33,7 @@
   "files": [
     "LICENSE",
     "README.md",
+    "SUPPORT.md",
     "docs",
     "src",
     "schema.sql",
